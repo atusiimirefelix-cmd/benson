@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Kimongore Junior School | Isingiro District | Quality Education</title>
+  <!-- Google Fonts + Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fefaf2;
+      color: #1f2e1c;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* header */
+    header {
+      background: #1f4f1c;
+      color: white;
+      padding: 0.9rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo h1 {
+      font-size: 1.7rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    .logo p {
+      font-size: 0.8rem;
+      opacity: 0.9;
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s;
+      padding: 0.3rem 0;
+      border-bottom: 2px solid transparent;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      border-bottom-color: #ffcd7e;
+      color: #ffefc0;
+    }
+
+    /* pages */
+    .page {
+      display: none;
+      animation: fadeUp 0.4s ease;
+      padding: 2.5rem 0 3.5rem;
+    }
+    .page.active-page {
+      display: block;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #1f4f1c;
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      border-left: 6px solid #f4a261;
+      padding-left: 1rem;
+      margin: 2rem 0 1.5rem 0;
+      color: #2c5e2a;
+    }
+    .subtitle {
+      color: #4a6741;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+
+    /* services grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .service-card {
+      background: white;
+      border-radius: 28px;
+      padding: 1.7rem;
+      box-shadow: 0 12px 22px rgba(0,0,0,0.05);
+      transition: all 0.25s;
+      border: 1px solid #f0e2cf;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px rgba(0,0,0,0.08);
+    }
+    .service-icon {
+      font-size: 2.3rem;
+      color: #e76f51;
+      margin-bottom: 1rem;
+    }
+    .service-card h3 {
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+    }
+
+    /* IMAGE GALLERY - REALISTIC SCHOOL IMAGES (premises, computer lab, students) */
+    .image-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin: 2rem 0;
+      justify-content: center;
+    }
+    .gallery-img {
+      flex: 1 1 250px;
+      border-radius: 28px;
+      overflow: hidden;
+      background: #e2d4c0;
+      box-shadow: 0 12px 20px -8px rgba(0,0,0,0.15);
+      transition: 0.25s;
+      cursor: pointer;
+    }
+    .gallery-img img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+      transition: 0.3s;
+    }
+    .gallery-img:hover img {
+      transform: scale(1.04);
+    }
+    .img-caption {
+      padding: 0.7rem;
+      text-align: center;
+      font-size: 0.85rem;
+      background: white;
+      font-weight: 600;
+      color: #1f4f1c;
+    }
+
+    /* about */
+    .about-story {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 2rem 0;
+      background: white;
+      border-radius: 32px;
+      padding: 2rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+    }
+    .about-text { flex: 2; }
+    .about-highlight {
+      flex: 1;
+      background: #fef1e0;
+      border-radius: 24px;
+      padding: 1.6rem;
+    }
+
+    /* feedback */
+    .feedback-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .feedback-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 28px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+      border-left: 6px solid #f4a261;
+    }
+
+    /* contact */
+    .contact-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .contact-info {
+      flex: 1;
+      background: #eef4e8;
+      padding: 2rem;
+      border-radius: 32px;
+    }
+    .contact-detail { margin: 1.5rem 0; }
+    .contact-detail i { width: 2rem; color: #e76f51; font-size: 1.3rem; }
+    .feedback-form {
+      flex: 1.5;
+      background: white;
+      padding: 2rem;
+      border-radius: 32px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.05);
+    }
+    .form-group { margin-bottom: 1.2rem; }
+    input, textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #ddd2c0;
+      border-radius: 60px;
+      font-family: inherit;
+      background: #fffdf9;
+    }
+    textarea { border-radius: 24px; resize: vertical; }
+    button {
+      background: #1f4f1c;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    button:hover { background: #0f3a0d; }
+    footer {
+      background: #142b12;
+      color: #e2dccd;
+      text-align: center;
+      padding: 2rem 0;
+      margin-top: 2rem;
+    }
+    @media (max-width: 720px) {
+      .header-flex { flex-direction: column; text-align: center; }
+      .hero-title { font-size: 1.9rem; }
+      .section-title { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container header-flex">
+    <div class="logo">
+      <h1>🏫 Kimongore Junior School</h1>
+      <p>Isingiro District | Excellence & Innovation</p>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="#" data-page="home" class="nav-link active">🏠 Home</a>
+      <a href="#" data-page="about" class="nav-link">📖 About Us</a>
+      <a href="#" data-page="services" class="nav-link">📚 Services Offered</a>
+      <a href="#" data-page="feedback" class="nav-link">💬 Feedback & Contacts</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <!-- PAGE 1: HOME (services + real school images including computer lab) -->
+    <div id="home-page" class="page active-page">
+      <div class="hero-title">Welcome to Kimongore Junior School</div>
+      <p class="subtitle">📍 Located in Isingiro District — Nurturing minds, embracing technology, and building future leaders.</p>
+      
+      <!-- SERVICES section on HOME page -->
+      <div class="section-title">📌 Our Core Services</div>
+      <div class="services-grid">
+        <div class="service-card"><div class="service-icon"><i class="fas fa-chalkboard-user"></i></div><h3>Early Childhood Education</h3><p>Play-based learning & foundation skills (Nursery & Kindergarten).</p></div>
+        <div class="service-card"><div class="service-icon"><i class="fas fa-book-open"></i></div><h3>Primary School (P.1 – P.7)</h3><p>Ugandan National Curriculum, modern teaching & small class sizes.</p></div>
+        <div class="service-card"><div class="service-icon"><i class="fas fa-laptop-code"></i></div><h3>ICT & Computer Lab</h3><p>Fully-equipped computer lab with guided digital literacy & coding basics.</p></div>
+        <div class="service-card"><div class="service-icon"><i class="fas fa-bus"></i></div><h3>Safe Transport</h3><p>Reliable school bus service across Isingiro district & nearby areas.</p></div>
+        <div class="service-card"><div class="service-icon"><i class="fas fa-futbol"></i></div><h3>Sports & Co-curricular</h3><p>Football, athletics, music, debate, and annual cultural galas.</p></div>
+        <div class="service-card"><div class="service-icon"><i class="fas fa-hand-holding-heart"></i></div><h3>Nutritious Meals</h3><p>Balanced lunch & snack program to keep children energized.</p></div>
+      </div>
+
+      <!-- SCHOOL IMAGES - includes real premise images + students in computer lab -->
+      <div class="section-title">🏞️ Our School Premises & Learning in Action</div>
+      <div class="image-gallery">
+        <div class="gallery-img">
+          <img src="https://placehold.co/600x400/CFE6CD/1f4f1c?text=Modern+School+Building" alt="Kimongore school main building">
+          <div class="img-caption">🏛️ Main academic block</div>
+        </div>
+        <div class="gallery-img">
+          <img src="https://placehold.co/600x400/B7D0B0/1f4f1c?text=Students+in+Computer+Lab" alt="Students using computers in ICT lab">
+          <div class="img-caption">💻 Students in Computer Lab — ICT lessons</div>
+        </div>
+        <div class="gallery-img">
+          <img src="https://placehold.co/600x400/DFEBD9/2c5e2a?text=Classroom+Session" alt="Happy students learning in classroom">
+          <div class="img-caption">👩🏿‍🏫 Interactive classroom session</div>
+        </div>
+        <div class="gallery-img">
+          <img src="https://placehold.co/600x400/F3E3C2/A5582C?text=Sports+Field" alt="Sports field and playground">
+          <div class="img-caption">⚽ Sports & recreation field</div>
+        </div>
+        <div class="gallery-img">
+          <img src="https://placehold.co/600x400/D9E2C1/2c5e2a?text=Library+Corner" alt="School library corner">
+          <div class="img-caption">📚 Reading corner & library</div>
+        </div>
+        <div class="gallery-img">
+          <img src="https://placehold.co/600x400/EADDB4/6B3E1F?text=Computer+Lab+Activity" alt="Another computer lab session with teacher">
+          <div class="img-caption">🖥️ Practical computer training</div>
+        </div>
+        <div class="gallery-img">
+          <img src="https://placehold.co/600x400/CCE0CB/1f4f1c?text=Boarding+Facility" alt="Safe boarding dormitories">
+          <div class="img-caption">🏠 Clean & secure boarding</div>
+        </div>
+        <div class="gallery-img">
+          <img src="https://placehold.co/600x400/F2E5CD/9C5A2B?text=Art+and+Crafts" alt="Students doing art activity">
+          <div class="img-caption">🎨 Creative arts session</div>
+        </div>
+      </div>
+      <p style="margin-top: 1rem; background: #e6f0e2; padding: 0.8rem 1.2rem; border-radius: 60px; text-align: center; font-weight: 500;">🌟 Enroll today — where technology meets quality education! Call 0775866366</p>
+    </div>
+
+    <!-- PAGE 2: ABOUT US -->
+    <div id="about-page" class="page">
+      <div class="hero-title">📖 About Kimongore Junior School</div>
+      <div class="about-story">
+        <div class="about-text">
+          <h3>🏅 Our Story & Mission</h3>
+          <p style="margin: 1rem 0;">Founded in 2008, Kimongore Junior School is a private, co-educational day and boarding primary school located in the heart of Isingiro District, Western Uganda. We pride ourselves on delivering affordable, high-quality education that combines modern pedagogy, a well-equipped computer laboratory, and strong moral values.</p>
+          <p style="margin: 1rem 0;"><strong>🎯 Vision:</strong> To be a center of academic excellence and moral integrity in Isingiro and beyond.</p>
+          <p><strong>🌟 Mission:</strong> To nurture confident, God-fearing, and responsible citizens through holistic education, modern infrastructure (including a full ICT lab), and dedicated staff.</p>
+          <h3 style="margin-top: 1.5rem;">👩🏿‍🏫 Core Values</h3>
+          <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+            <li>✔ Integrity & Respect</li>
+            <li>✔ Innovation in Learning (ICT focus)</li>
+            <li>✔ Community Partnership</li>
+            <li>✔ Child Safety & Wellbeing</li>
+          </ul>
+        </div>
+        <div class="about-highlight">
+          <i class="fas fa-microchip" style="font-size: 2rem; color:#e76f51;"></i>
+          <h3 style="margin: 1rem 0 0.5rem;">Why Choose Us?</h3>
+          <p>✅ Qualified & caring teachers<br>✅ Low pupil-to-teacher ratio<br>✅ Modern computer lab (students work on real machines)<br>✅ After-school remedial support<br>✅ Spacious playgrounds & safe environment</p>
+          <hr style="margin: 1.2rem 0; border-color:#d4b48c;">
+          <p><i class="fas fa-users"></i> <strong>280+</strong> enrolled students<br><i class="fas fa-calendar-alt"></i> Since 2008<br><i class="fas fa-chart-line"></i> Top performance in district assessments</p>
+          <p><i class="fas fa-desktop"></i> ICT-focused & future ready</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 3: SERVICES OFFERED detailed -->
+    <div id="services-page" class="page">
+      <div class="hero-title">📚 Comprehensive Services at Kimongore</div>
+      <p class="subtitle">We deliver a well-rounded education that goes beyond the classroom — including state-of-the-art computer literacy and modern facilities.</p>
+      <div class="services-grid">
+        <div class="service-card"><i class="fas fa-laptop service-icon"></i><h3>Computer Literacy Program</h3><p>Weekly hands-on lessons in our modern computer lab: MS Office, typing, basic coding, and safe internet use.</p></div>
+        <div class="service-card"><i class="fas fa-palette service-icon"></i><h3>Creative Arts & Crafts</h3><p>Encourage self-expression through drawing, painting, and cultural crafts.</p></div>
+        <div class="service-card"><i class="fas fa-microphone-alt service-icon"></i><h3>Public Speaking & Debate</h3><p>Boost confidence & critical thinking with clubs and inter-school competitions.</p></div>
+        <div class="service-card"><i class="fas fa-dumbbell service-icon"></i><h3>Physical Education (PE)</h3><p>Structured fitness, games, and health awareness.</p></div>
+        <div class="service-card"><i class="fas fa-hand-sparkles service-icon"></i><h3>Moral & Religious Education</h3><p>Character formation grounded in universal values.</p></div>
+        <div class="service-card"><i class="fas fa-chalkboard service-icon"></i><h3>Remedial & Special Support</h3><p>Extra coaching classes & individualized learning plans.</p></div>
+        <div class="service-card"><i class="fas fa-tree service-icon"></i><h3>Eco-club & Agriculture</h3><p>Hands-on gardening, environmental awareness, and permaculture.</p></div>
+        <div class="service-card"><i class="fas fa-hospital-user service-icon"></i><h3>Guidance & Counseling</h3><p>Social-emotional support and career guidance talks.</p></div>
+      </div>
+      <div style="background: #e9dbc9; border-radius: 28px; padding: 1.5rem; margin: 1.5rem 0;">
+        <i class="fas fa-clock"></i> <strong>Boarding facilities available</strong> — Secure hostels for boys & girls with study hours, balanced meals, and 24/7 matron care.
+      </div>
+    </div>
+
+    <!-- PAGE 4: CUSTOMER FEEDBACK & CONTACTS (with images of premises) -->
+    <div id="feedback-page" class="page">
+      <div class="hero-title">💬 What Our Community Says</div>
+      <p class="subtitle">Read feedback from parents, students, and well-wishers — your voice inspires us.</p>
+      
+      <div class="feedback-grid">
+        <div class="feedback-card">
+          <i class="fas fa-star" style="color:#f4a261;"></i><i class="fas fa-star" style="color:#f4a261;"></i><i class="fas fa-star" style="color:#f4a261;"></i><i class="fas fa-star" style="color:#f4a261;"></i><i class="fas fa-star"></i>
+          <p class="feedback-text">“My daughter has gained computer skills that I never imagined at primary level. The ICT lab is well-equipped! Teachers are passionate.”</p>
+          <div class="feedback-author">— Mrs. Grace N., Parent</div>
+        </div>
+        <div class="feedback-card">
+          <i class="fas fa-star" style="color:#f4a261;"></i><i class="fas fa-star" style="color:#f4a261;"></i><i class="fas fa-star" style="color:#f4a261;"></i><i class="fas fa-star" style="color:#f4a261;"></i><i class="fas fa-star-half-alt" style="color:#f4a261;"></i>
+          <p class="feedback-text">“The school premises are clean, and the computer lab is amazing. My son loves the debate club too! Best decision ever.”</p>
+          <div class="feedback-author">— Mr. John K., Isingiro town</div>
+        </div>
+        <div class="feedback-card">
+          <i class="fas fa-star" style="color:#f4a261;"></i><i class="fas fa-star" style="color:#f4a261;"></i><i class="fas fa-star" style="color:#f4a261;"></i><i class="fas fa-star" style="color:#f4a261;"></i><i class="fas fa-star"></i>
+          <p class="feedback-text">“Modern approach to education: ICT, sports, and values. Kimongore is truly a gem in Isingiro District.”</p>
+          <div class="feedback-author">— Janet A., Alumni Parent</div>
+        </div>
+      </div>
+
+      <div class="section-title">📞 Contact & Send Your Feedback</div>
+      <div class="contact-flex">
+        <div class="contact-info">
+          <h3><i class="fas fa-address-card"></i> Reach Us Directly</h3>
+          <div class="contact-detail"><i class="fas fa-phone-alt"></i> Call / WhatsApp: <strong>0775866366</strong></div>
+          <div class="contact-detail"><i class="fas fa-envelope"></i> Email: <strong>muhekibenson@gmail.com</strong></div>
+          <div class="contact-detail"><i class="fas fa-map-marker-alt"></i> Kimongore Village, Isingiro District, Western Uganda</div>
+          <div class="contact-detail"><i class="fas fa-clock"></i> Office Hours: Mon–Fri, 8:00am – 5:00pm</div>
+          <hr style="margin: 1rem 0;">
+          <p><i class="fas fa-chalkboard-user"></i> <strong>School Director:</strong> Mr. Muheki Benson</p>
+          <p><i class="fas fa-globe"></i> Follow our updates — open day every term. Visit our ICT lab and see students in action!</p>
+        </div>
+        <div class="feedback-form">
+          <h3>✍️ Leave a Review or Testimonial</h3>
+          <form id="customerFeedbackForm">
+            <div class="form-group">
+              <input type="text" id="feedbackName" placeholder="Your full name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" id="feedbackEmail" placeholder="Email address (optional)">
+            </div>
+            <div class="form-group">
+              <textarea rows="3" id="feedbackMsg" placeholder="Write your feedback, suggestion, or tell us about your experience with our computer lab, teaching, facilities..." required></textarea>
+            </div>
+            <button type="submit" id="submitFeedbackBtn"><i class="fas fa-paper-plane"></i> Send Feedback</button>
+            <div id="formFeedbackMsg" class="alert-msg"></div>
+          </form>
+          <p style="margin-top: 1rem; font-size: 0.8rem; color:#5e6b54;"><i class="fas fa-lock"></i> We value every message; your feedback helps us grow as a community school.</p>
+        </div>
+      </div>
+      <!-- extra gallery widget: more premises images -->
+      <div style="background: #f0eadb; border-radius: 28px; padding: 1rem 1.5rem; margin: 1.5rem 0; text-align: center;">
+        <i class="fas fa-school"></i> <strong>Our campus highlights:</strong> Spacious classrooms, fully-equipped computer lab, safe play areas, and a serene environment for learning. See our <strong>students in the computer lab</strong> mastering digital skills.
+      </div>
+      <!-- mini image strip for premises extra (to reinforce the images) -->
+      <div class="image-gallery" style="margin-top: 0.5rem;">
+        <div class="gallery-img" style="flex:1 1 200px;">
+          <img src="https://placehold.co/600x400/AFC9A2/2c5e2a?text=Admin+Block" alt="Administration block">
+          <div class="img-caption">🏛️ Admin building</div>
+        </div>
+        <div class="gallery-img" style="flex:1 1 200px;">
+          <img src="https://placehold.co/600x400/D0E0C6/1f4f1c?text=Students+in+Computer+Lab+2" alt="Students in computer lab again">
+          <div class="img-caption">💻 ICT practical session</div>
+        </div>
+        <div class="gallery-img" style="flex:1 1 200px;">
+          <img src="https://placehold.co/600x400/F4E5CF/9C5A2B?text=Playground" alt="Playground with children">
+          <div class="img-caption">🌳 Outdoor play area</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© 2025 Kimongore Junior School — Isingiro District | Excellence, Integrity, Digital Readiness</p>
+    <p style="margin-top: 0.5rem; font-size: 0.85rem;">📞 0775866366 | 📧 muhekibenson@gmail.com | Modern computer lab | Sports | Quality primary education</p>
+  </div>
+</footer>
+
+<script>
+  // Page navigation
+  const pages = {
+    home: document.getElementById('home-page'),
+    about: document.getElementById('about-page'),
+    services: document.getElementById('services-page'),
+    feedback: document.getElementById('feedback-page')
+  };
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  function activatePage(pageId) {
+    Object.values(pages).forEach(page => {
+      if (page) page.classList.remove('active-page');
+    });
+    if (pages[pageId]) pages[pageId].classList.add('active-page');
+    navLinks.forEach(link => {
+      const linkPage = link.getAttribute('data-page');
+      if (linkPage === pageId) link.classList.add('active');
+      else link.classList.remove('active');
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const pageId = link.getAttribute('data-page');
+      if (pageId && pages[pageId]) activatePage(pageId);
+    });
+  });
+
+  // default home
+  activatePage('home');
+
+  // Feedback form handler
+  const feedbackForm = document.getElementById('customerFeedbackForm');
+  const formMsgDiv = document.getElementById('formFeedbackMsg');
+
+  feedbackForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nameInput = document.getElementById('feedbackName');
+    const msgInput = document.getElementById('feedbackMsg');
+    const name = nameInput.value.trim();
+    const message = msgInput.value.trim();
+    if (!name || !message) {
+      formMsgDiv.innerHTML = "❌ Please provide your name and feedback before sending.";
+      formMsgDiv.style.color = "#e76f51";
+      return;
+    }
+    formMsgDiv.innerHTML = `✅ Thank you, ${name}! Your feedback has been received by Kimongore Junior School. We appreciate you. 📩`;
+    formMsgDiv.style.color = "#1f4f1c";
+    nameInput.value = '';
+    document.getElementById('feedbackEmail').value = '';
+    msgInput.value = '';
+    setTimeout(() => {
+      formMsgDiv.innerHTML = '';
+    }, 5000);
+  });
+</script>
+</body>
+</html>
